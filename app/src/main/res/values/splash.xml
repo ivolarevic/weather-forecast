@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- XML for splash screen -->
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/primaryDarkColor</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/weather</item>
+        <item name="postSplashScreenTheme">@style/Theme.WeatherApp</item>
+
+    </style>
+
+
+</resources>
