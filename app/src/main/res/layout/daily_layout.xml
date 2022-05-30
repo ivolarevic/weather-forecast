@@ -72,10 +72,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.884"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/weatherIconDaily" />
+                app:layout_constraintTop_toBottomOf="@+id/weatherIconHourly" />
 
             <ImageView
-                android:id="@+id/weatherIconDaily"
+                android:id="@+id/weatherIconHourly"
                 android:layout_width="62dp"
                 android:layout_height="49dp"
                 android:layout_marginTop="16dp"

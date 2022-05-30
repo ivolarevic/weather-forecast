@@ -7,14 +7,14 @@
         android:id="@+id/currentFragment"
         />
     <item
-        android:title="Weekly" android:icon="@drawable/ic_baseline_calendar_today_24"
-        android:enabled="true"
-        android:id="@+id/weeklyFragment"
-        />
-    <item
         android:title="Hourly" android:icon="@drawable/ic_baseline_access_time_24"
         android:enabled="true"
         android:id="@+id/hourlyFragment"
+        />
+    <item
+        android:title="Weekly" android:icon="@drawable/ic_baseline_calendar_today_24"
+        android:enabled="true"
+        android:id="@+id/weeklyFragment"
         />
     <item
         android:title="Search" android:icon="@drawable/ic_baseline_search_24"

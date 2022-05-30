@@ -5,27 +5,23 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.weatherapp.model.DataDailyModel
-import java.lang.Math.ceil
 
 
 class CustomAdapter(private var itemsList: List<DataDailyModel>) : RecyclerView.Adapter<CustomAdapter.MyViewHolder>() {
-
     inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var dailyConstraint: ConstraintLayout = view.findViewById(R.id.dailyConstraint)
         var description: TextView = view.findViewById(R.id.weatherDaily)
         var day: TextView = view.findViewById(R.id.day)
-        var iconView: ImageView = view.findViewById(R.id.weatherIconDaily)
+        var iconView: ImageView = view.findViewById(R.id.weatherIconHourly)
         var minMaxTempView: TextView = view.findViewById(R.id.minMaxDaily)
         var rainView: TextView = view.findViewById(R.id.rainDaily)
         var humidityView: TextView = view.findViewById(R.id.humidityDaily)
         var windView: TextView = view.findViewById(R.id.windDaily)
         var pressureView: TextView = view.findViewById(R.id.pressureDaily)
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {

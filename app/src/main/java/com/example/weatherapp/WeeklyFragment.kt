@@ -15,13 +15,13 @@ import com.example.weatherapp.model.InterfaceAPI
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.lang.Math.round
 import java.math.RoundingMode
 import java.sql.Timestamp
 import java.text.SimpleDateFormat
 import java.util.*
 
 class WeeklyFragment : Fragment() {
-
     val defaultLatitude: Float = 45.815399f
     val defaultLongitude: Float = 15.966568f
     private val API_KEY = "d32c530968b46cca52ed08edcf0d6a93"
@@ -30,12 +30,11 @@ class WeeklyFragment : Fragment() {
     private var progressBar:ProgressBar ?= null
     private lateinit var customAdapter: CustomAdapter
     private var recyclerView: RecyclerView? = null
-
     private var apiInterface: Call<Forecast>? = null
+
     var description: String? = null
     var minTemp: String? = null
     var maxTemp: String? = null
-    var dayOfWeek: String = "Zagreb"
     var pressure: Float? = 0.0f
     var humidity: Int? = 0
     var wind: Float? = 0.0f
@@ -99,22 +98,9 @@ class WeeklyFragment : Fragment() {
         humidity = body.daily[i].humidity
         wind = body.daily[i].wind_speed
         rain = body.daily[i].rain
-
         dailyList.add(
-            DataDailyModel(
-                description!!,
-                dayOfTheWeek,
-                idIcon!!,
-                minTemp!!,
-                maxTemp!!,
-                rain!!,
-                humidity!!,
-                wind!!,
-                pressure!!,
-                idBackground!!,
-            )
+            DataDailyModel(description!!, dayOfTheWeek, idIcon!!, minTemp!!, maxTemp!!, rain!!, humidity!!, wind!!, pressure!!, idBackground!!,)
         )
-
         customAdapter.notifyDataSetChanged()
     }
 
