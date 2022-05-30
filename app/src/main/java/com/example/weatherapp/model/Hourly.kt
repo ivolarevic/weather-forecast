@@ -9,7 +9,6 @@ data class Hourly (
     @SerializedName("pressure") val pressure:Float,
     @SerializedName("humidity") val humidity:Float,
     @SerializedName("dew_point") val dew_point:Float,
-
     @SerializedName("uvi") val uvi:Float,
     @SerializedName("clouds") val clouds:Float,
     @SerializedName("visibility") val visibility:Float,

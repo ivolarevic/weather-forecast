@@ -4,22 +4,32 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Korisnik/AndroidStudioProjects/WeatherApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.343" />
+        <entry key="..\:/Users/Korisnik/AndroidStudioProjects/WeatherApp/app/src/main/res/drawable/animations.xml" value="0.21" />
         <entry key="..\:/Users/Korisnik/AndroidStudioProjects/WeatherApp/app/src/main/res/drawable/bg_gradient.xml" value="0.1" />
+        <entry key="..\:/Users/Korisnik/AndroidStudioProjects/WeatherApp/app/src/main/res/drawable/clear_background.xml" value="0.18" />
+        <entry key="..\:/Users/Korisnik/AndroidStudioProjects/WeatherApp/app/src/main/res/drawable/corners.xml" value="0.2075" />
         <entry key="..\:/Users/Korisnik/AndroidStudioProjects/WeatherApp/app/src/main/res/drawable/ic_baseline_cloud_24.xml" value="0.343" />
         <entry key="..\:/Users/Korisnik/AndroidStudioProjects/WeatherApp/app/src/main/res/drawable/ic_baseline_cloud_queue_24.xml" value="0.343" />
         <entry key="..\:/Users/Korisnik/AndroidStudioProjects/WeatherApp/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.343" />
         <entry key="..\:/Users/Korisnik/AndroidStudioProjects/WeatherApp/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.343" />
         <entry key="..\:/Users/Korisnik/AndroidStudioProjects/WeatherApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Users/Korisnik/AndroidStudioProjects/WeatherApp/app/src/main/res/drawable/layout_bg.xml" value="0.158" />
+        <entry key="..\:/Users/Korisnik/AndroidStudioProjects/WeatherApp/app/src/main/res/drawable/rain_background.xml" value="0.275" />
+        <entry key="..\:/Users/Korisnik/AndroidStudioProjects/WeatherApp/app/src/main/res/drawable/round_layout.xml" value="0.2735" />
+        <entry key="..\:/Users/Korisnik/AndroidStudioProjects/WeatherApp/app/src/main/res/drawable/snow_background.xml" value="0.152" />
         <entry key="..\:/Users/Korisnik/AndroidStudioProjects/WeatherApp/app/src/main/res/drawable/splash_background.xml" value="0.1" />
+        <entry key="..\:/Users/Korisnik/AndroidStudioProjects/WeatherApp/app/src/main/res/drawable/thunderstorm_background.xml" value="0.25" />
         <entry key="..\:/Users/Korisnik/AndroidStudioProjects/WeatherApp/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/Korisnik/AndroidStudioProjects/WeatherApp/app/src/main/res/layout/activity_splash_screen.xml" value="0.2015625" />
         <entry key="..\:/Users/Korisnik/AndroidStudioProjects/WeatherApp/app/src/main/res/layout/content_main.xml" value="0.327445652173913" />
+        <entry key="..\:/Users/Korisnik/AndroidStudioProjects/WeatherApp/app/src/main/res/layout/daily_layout.xml" value="0.4" />
         <entry key="..\:/Users/Korisnik/AndroidStudioProjects/WeatherApp/app/src/main/res/layout/fragment_blank.xml" value="0.1" />
-        <entry key="..\:/Users/Korisnik/AndroidStudioProjects/WeatherApp/app/src/main/res/layout/fragment_current.xml" value="0.33958333333333335" />
+        <entry key="..\:/Users/Korisnik/AndroidStudioProjects/WeatherApp/app/src/main/res/layout/fragment_current.xml" value="0.30448717948717946" />
         <entry key="..\:/Users/Korisnik/AndroidStudioProjects/WeatherApp/app/src/main/res/layout/fragment_hourly.xml" value="0.25" />
         <entry key="..\:/Users/Korisnik/AndroidStudioProjects/WeatherApp/app/src/main/res/layout/fragment_search.xml" value="0.25" />
-        <entry key="..\:/Users/Korisnik/AndroidStudioProjects/WeatherApp/app/src/main/res/layout/fragment_weekly.xml" value="0.18819655521783182" />
+        <entry key="..\:/Users/Korisnik/AndroidStudioProjects/WeatherApp/app/src/main/res/layout/fragment_weekly.xml" value="0.22" />
         <entry key="..\:/Users/Korisnik/AndroidStudioProjects/WeatherApp/app/src/main/res/menu/bottom_menu.xml" value="0.33" />
+        <entry key="..\:/Users/Korisnik/AndroidStudioProjects/WeatherApp/app/src/main/res/menu/menu_main.xml" value="0.25" />
       </map>
     </option>
   </component>
