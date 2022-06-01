@@ -11,15 +11,12 @@ import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.weatherapp.data.LocationData
 
-import com.example.weatherapp.model.Forecast
-import com.example.weatherapp.model.InterfaceAPI
-import com.github.matteobattilana.weather.PrecipType
-import com.github.matteobattilana.weather.WeatherView
+import com.example.weatherapp.api.Forecast
+import com.example.weatherapp.api.InterfaceAPI
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

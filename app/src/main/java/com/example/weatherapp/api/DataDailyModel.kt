@@ -1,6 +1,4 @@
-package com.example.weatherapp.model
-
-import android.opengl.Visibility
+package com.example.weatherapp.api
 
 data class DataDailyModel (
     val description: String,

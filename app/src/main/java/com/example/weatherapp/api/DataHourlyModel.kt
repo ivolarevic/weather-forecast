@@ -1,4 +1,4 @@
-package com.example.weatherapp.model
+package com.example.weatherapp.api
 
 data class DataHourlyModel (
     var hour:String,

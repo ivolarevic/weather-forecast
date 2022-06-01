@@ -6,13 +6,12 @@
     android:layout_height="wrap_content"
     android:background="@drawable/round_layout"
     android:layout_marginTop="24dp"
-
     >
+
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/card_view"
         android:clickable="true"
         app:cardPreventCornerOverlap="false"
         android:focusable="true"

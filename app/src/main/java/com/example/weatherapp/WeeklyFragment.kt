@@ -9,13 +9,13 @@ import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.weatherapp.model.DataDailyModel
-import com.example.weatherapp.model.Forecast
-import com.example.weatherapp.model.InterfaceAPI
+import com.example.weatherapp.adapters.CustomAdapter
+import com.example.weatherapp.api.DataDailyModel
+import com.example.weatherapp.api.Forecast
+import com.example.weatherapp.api.InterfaceAPI
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.lang.Math.round
 import java.math.RoundingMode
 import java.sql.Timestamp
 import java.text.SimpleDateFormat
@@ -85,10 +85,9 @@ class WeeklyFragment : Fragment() {
 
         val sdf = SimpleDateFormat("EEEE")
         var dayOfTheWeek: String ?= null
-
         var time:Timestamp = Timestamp(body!!.daily[i].dt*1000)
-        dayOfTheWeek = sdf.format(time)
 
+        dayOfTheWeek = sdf.format(time)
         fetchIcon(body.daily[i].weather[0].id)
 
         description = body.daily[i].weather[0].description

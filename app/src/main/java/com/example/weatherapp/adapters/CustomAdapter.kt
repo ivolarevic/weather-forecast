@@ -1,4 +1,4 @@
-package com.example.weatherapp
+package com.example.weatherapp.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +8,8 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.weatherapp.model.DataDailyModel
+import com.example.weatherapp.R
+import com.example.weatherapp.api.DataDailyModel
 
 
 class CustomAdapter(private var itemsList: List<DataDailyModel>) : RecyclerView.Adapter<CustomAdapter.MyViewHolder>() {

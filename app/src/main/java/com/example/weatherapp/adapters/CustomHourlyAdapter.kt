@@ -1,17 +1,14 @@
-package com.example.weatherapp
+package com.example.weatherapp.adapters
 
-import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.weatherapp.model.DataDailyModel
-import com.example.weatherapp.model.DataHourlyModel
+import com.example.weatherapp.R
+import com.example.weatherapp.api.DataHourlyModel
 
 class CustomHourlyAdapter(private var itemsList: List<DataHourlyModel>) : RecyclerView.Adapter<CustomHourlyAdapter.MyViewHolder>() {
     inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
