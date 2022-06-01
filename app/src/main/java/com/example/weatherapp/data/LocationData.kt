@@ -1,9 +1,7 @@
 package com.example.weatherapp.data
 
 import android.util.Log
-import android.view.View
 import android.widget.ImageView
-import android.widget.ProgressBar
 import com.bumptech.glide.Glide
 import com.example.weatherapp.R
 import com.example.weatherapp.api.Forecast
@@ -13,41 +11,31 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.math.RoundingMode
 
-class LocationData {
+open class LocationData() {
 
-    private val API_KEY = "d32c530968b46cca52ed08edcf0d6a93"
-    private var apiInterface:Call<Forecast> ?= null
-    var idHourlyIcon: Int ?= 0
+    val API_KEY = "d32c530968b46cca52ed08edcf0d6a93"
+    var idHourlyIcon: Int = 0
     var idCurrentBack: Int = 0
-    val defaultLatitude = 45.815399f
-    val defaultLongitude = 15.966568f
+    val defaultLatitude:Float = 45.815399f
+    val defaultLongitude:Float = 15.966568f
 
-    fun fetchCurrentLocationWeather(): Forecast? {
-        var forecast : Forecast ?= null
-        apiInterface = InterfaceAPI.create().getCurrentWeatherData(defaultLatitude,defaultLongitude,API_KEY)
-        apiInterface!!.enqueue(object: Callback<Forecast> {
-            override fun onResponse(call: Call<Forecast>, response: Response<Forecast>) {
-                if(response.isSuccessful){
-                    forecast = response.body()!!
-                    Log.d("succ: ", forecast!!.lon.toString())
-
-                }
-            }
-            override fun onFailure(call: Call<Forecast>, t: Throwable) {
-                Log.d("error_retrofit: ", t.toString())
-            }
-
-        })
-        return forecast
+    fun setDefaultLatitude() : Float {
+        return defaultLatitude
+    }
+    fun setDefaultLongitude() : Float {
+        return defaultLongitude
+    }
+    fun apiKey() : String{
+        return "d32c530968b46cca52ed08edcf0d6a93"
     }
 
-    public fun kelvinToCelsius(temp: Float): Any? {
+    fun kelvinToCelsius(temp: Float): Any? {
         var intTemp = temp
         intTemp = intTemp.minus(273)
         return intTemp.toBigDecimal().setScale(1, RoundingMode.UP)
     }
 
-    public fun fetchIcon(id: Int){
+    fun fetchIcon(id: Int) : Int {
         if(id in 201..232){
             idHourlyIcon = R.drawable.thunderstorm_icon
         }
@@ -63,8 +51,10 @@ class LocationData {
         else if(id in 801..804){
             idHourlyIcon = R.drawable.clouds_transparent
         }
+        return idHourlyIcon
     }
-    public fun fetchBackground(id: Int){
+
+    fun fetchBackground(id: Int) : Int {
         if(id in 201..232){
             idCurrentBack = R.drawable.thunderstorm_background
         }
@@ -80,8 +70,13 @@ class LocationData {
         else if(id in 801..804){
             idCurrentBack = R.drawable.snow_background
         }
+        return idCurrentBack
     }
 
-
-
+    fun animateImage(image: ImageView?){
+        image!!.animate().apply {
+            duration = 1000
+            rotationYBy(360f)
+        }.start()
+    }
 }

@@ -1,7 +1,6 @@
 package com.example.weatherapp
 
-import android.location.Location
-import android.location.LocationListener
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -19,7 +18,6 @@ import com.example.weatherapp.data.LocationData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.math.RoundingMode
 import java.sql.Timestamp
 import java.text.SimpleDateFormat
 import java.util.ArrayList
@@ -30,14 +28,13 @@ class HourlyFragment : Fragment() {
     private lateinit var customAdapter: CustomHourlyAdapter
     private var recyclerView: RecyclerView? = null
     private var hourlyList = ArrayList<DataHourlyModel>()
-
     private var hourlyDescription:String ?= null
     private var hourlyTemp: String ?= null
     private var background: FrameLayout ?= null
     private var progressBar: ProgressBar ?= null
     private var hConst: ConstraintLayout ?= null
-
-    var forecastHourly : Forecast ?= null
+    lateinit var locData: LocationData
+    private var apiInterface:Call<Forecast> ?= null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,8 +46,7 @@ class HourlyFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        recyclerView = view?.findViewById(R.id.hourlyRecyclerView)
+        recyclerView = view.findViewById(R.id.hourlyRecyclerView)
         customAdapter = CustomHourlyAdapter(hourlyList)
         recyclerView?.layoutManager = GridLayoutManager(context, 2)
         recyclerView?.adapter = customAdapter
@@ -58,44 +54,46 @@ class HourlyFragment : Fragment() {
         background = view.findViewById(R.id.hourlyFrame)
         hConst = view.findViewById(R.id.hConst)
 
-        // !!
-        val locData = LocationData()
-        getHourlyData(locData)
+        locData = LocationData()
+        fetchCurrentLocationWeather(progressBar!!)
     }
 
-    private fun getHourlyData(locData: LocationData) {
-        forecastHourly = locData?.fetchCurrentLocationWeather()
-
-        for (i in 1..NUM_HOURS) {
-            progressBar?.visibility = View.GONE
-            hConst?.visibility = View.VISIBLE
-            fetchHourlyWeather(forecastHourly, i, locData)
-            Log.d("fetched", i.toString())
-        }
+    private fun fetchCurrentLocationWeather(progressBar: ProgressBar) {
+        apiInterface = InterfaceAPI.create().getCurrentWeatherData(locData.setDefaultLatitude(),locData.setDefaultLongitude(),locData.apiKey())
+        apiInterface!!.enqueue(object: Callback<Forecast> {
+            override fun onResponse(call: Call<Forecast>, response: Response<Forecast>) {
+                if(response.isSuccessful){
+                    for (i in 1..NUM_HOURS) {
+                        progressBar.visibility = View.GONE
+                        hConst?.visibility = View.VISIBLE
+                        fetchHourlyWeather(response.body()!!, i)
+                    }
+                }
+            }
+            override fun onFailure(call: Call<Forecast>, t: Throwable) {
+            }
+        })
     }
 
-    private fun fetchHourlyWeather(body: Forecast?, i: Int, locData: LocationData) {
+    @SuppressLint("SimpleDateFormat")
+    private fun fetchHourlyWeather(body: Forecast, i: Int) {
         val sdf = SimpleDateFormat("HH")
         var hour: String ?= null
-        var time: Timestamp = Timestamp(body!!.hourly[i].dt*1000)
+        var time = Timestamp(body.hourly[i].dt*1000)
         hour = sdf.format(time) + ":00h"
-
         hourlyDescription = body.hourly[i].weather[0].description
-        hourlyTemp = "" + locData!!.kelvinToCelsius((body.hourly[i].temp)) + "°"
-
-        locData!!.fetchIcon(body.hourly[i].weather[0].id)
-        locData!!.fetchBackground(body.current.weather[0].id)
-
-        background?.setBackgroundResource(locData!!.idCurrentBack)
+        hourlyTemp = "" + locData.kelvinToCelsius((body.hourly[i].temp)) + "°"
+        locData.fetchIcon(body.hourly[i].weather[0].id)
+        locData.fetchBackground(body.current.weather[0].id)
+        background?.setBackgroundResource(locData.idCurrentBack)
         hourlyList.add(
             DataHourlyModel(
                 hour,
-                locData!!.idHourlyIcon!!,
+                locData.idHourlyIcon!!,
                 hourlyDescription!!,
                 hourlyTemp!!,
             )
         )
-
         customAdapter.notifyDataSetChanged()
     }
 }
