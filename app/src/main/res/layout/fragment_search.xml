@@ -17,6 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="44dp"
+            android:textColor="@color/primaryTextColor"
             android:text="@string/search_for_city"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -35,267 +36,267 @@
             app:layout_constraintStart_toEndOf="@+id/search_city"
             app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraint_bottom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/max_temp">
-
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout"
+            android:id="@+id/constraint_bottom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/spinner">
 
-            <TextView
-                android:id="@+id/searchName"
-                android:textColor="@color/primaryTextColor"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="128dp"
-                android:textSize="26sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/searchIcon"
-                android:layout_width="92dp"
-                android:layout_height="94dp"
-                android:layout_marginTop="12dp"
-                android:src="@drawable/weather"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.206"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/searchName" />
-
-            <TextView
-                android:id="@+id/searchTemp"
-                android:textColor="@color/primaryTextColor"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="36dp"
-                android:textSize="52sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.312"
-                app:layout_constraintStart_toEndOf="@+id/searchIcon"
-                app:layout_constraintTop_toBottomOf="@+id/searchName" />
-
-            <LinearLayout
-                android:id="@+id/linear_horizontal"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/bottomConstraint"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="48dp"
-                android:orientation="horizontal"
-                android:weightSum="3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-                app:layout_constraintTop_toBottomOf="@+id/searchDescription">
+                <TextView
+                    android:id="@+id/searchName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="128dp"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="26sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/searchIcon"
+                    android:layout_width="92dp"
+                    android:layout_height="94dp"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/weather"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.206"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/searchName" />
+
+                <TextView
+                    android:id="@+id/searchTemp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="36dp"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="52sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.312"
+                    app:layout_constraintStart_toEndOf="@+id/searchIcon"
+                    app:layout_constraintTop_toBottomOf="@+id/searchName" />
 
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_marginStart="12sp"
-                    android:layout_marginEnd="8sp"
+                    android:id="@+id/linear_horizontal"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/layout_bg"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="8dp">
+                    android:layout_marginTop="48dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
 
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:src="@drawable/ic_baseline_cloud_queue_24" />
+                    app:layout_constraintTop_toBottomOf="@+id/searchDescription">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/visibility"
-                        android:textSize="12dp" />
+                        android:layout_marginStart="12sp"
+                        android:layout_marginEnd="8sp"
+                        android:layout_weight="1"
+                        android:background="@drawable/layout_bg"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="8dp">
 
-                    <TextView
-                        android:id="@+id/visibilitySearch"
-                        android:layout_width="wrap_content"
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:src="@drawable/ic_baseline_cloud_queue_24" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/visibility"
+                            android:textSize="12dp" />
+
+                        <TextView
+                            android:id="@+id/visibilitySearch"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:textSize="14dp" />
+                        android:layout_marginStart="8sp"
+                        android:layout_marginEnd="8sp"
+                        android:layout_weight="1"
+                        android:background="@drawable/layout_bg"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:src="@drawable/humidity" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/humidity"
+                            android:textSize="12dp" />
+
+                        <TextView
+                            android:id="@+id/searchHumidity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8sp"
+                        android:layout_marginEnd="12sp"
+                        android:layout_weight="1"
+                        android:background="@drawable/layout_bg"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:src="@drawable/wind" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/wind"
+                            android:textSize="12dp" />
+
+                        <TextView
+                            android:id="@+id/windSearch"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14dp" />
+                    </LinearLayout>
+
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:id="@+id/linear_horizontal2"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8sp"
-                    android:layout_marginEnd="8sp"
-                    android:layout_weight="1"
-                    android:background="@drawable/layout_bg"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="8dp">
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linear_horizontal">
 
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:src="@drawable/humidity" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/humidity"
-                        android:textSize="12dp" />
+                        android:layout_marginStart="12sp"
+                        android:layout_marginEnd="8sp"
+                        android:layout_weight="1"
+                        android:background="@drawable/layout_bg"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="8dp">
 
-                    <TextView
-                        android:id="@+id/searchHumidity"
-                        android:layout_width="wrap_content"
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:src="@drawable/temp_down" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/min_temp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/searchMin_temp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:textSize="14dp" />
+                        android:layout_marginStart="8sp"
+                        android:layout_marginEnd="8sp"
+                        android:layout_weight="1"
+                        android:background="@drawable/layout_bg"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:src="@drawable/temp_up" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/max_temp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/searchMax_temp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8sp"
+                        android:layout_marginEnd="12sp"
+                        android:layout_weight="1"
+                        android:background="@drawable/layout_bg"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:src="@drawable/pressure" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/pressure"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/searchPressure"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="0dp"
+                <TextView
+                    android:id="@+id/searchDescription"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8sp"
-                    android:layout_marginEnd="12sp"
-                    android:layout_weight="1"
-                    android:background="@drawable/layout_bg"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="8dp">
+                    android:layout_marginTop="24dp"
+                    android:textColor="@color/primaryTextColor"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.243"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/searchIcon" />
 
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:src="@drawable/wind" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/wind"
-                        android:textSize="12dp" />
-
-                    <TextView
-                        android:id="@+id/windSearch"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="14dp" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linear_horizontal2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:orientation="horizontal"
-                android:weightSum="3"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linear_horizontal">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12sp"
-                    android:layout_marginEnd="8sp"
-                    android:layout_weight="1"
-                    android:background="@drawable/layout_bg"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="8dp">
-
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:src="@drawable/temp_down" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/min_temp"
-                        android:textSize="12sp" />
-                    <TextView
-                        android:id="@+id/searchMin_temp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="14sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8sp"
-                    android:layout_marginEnd="8sp"
-                    android:layout_weight="1"
-                    android:background="@drawable/layout_bg"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="8dp">
-
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:src="@drawable/temp_up" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/max_temp"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/searchMax_temp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="14sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8sp"
-                    android:layout_marginEnd="12sp"
-                    android:layout_weight="1"
-                    android:background="@drawable/layout_bg"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="8dp">
-
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:src="@drawable/pressure" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/pressure"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/searchPressure"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="14sp" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/searchDescription"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:textColor="@color/primaryTextColor"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.243"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/searchIcon" />
-
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
