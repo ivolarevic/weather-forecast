@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/searchBackground"
     tools:context=".SearchFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,8 +17,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="44dp"
-            android:text="Search for city: "
-            android:textSize="18dp"
+            android:text="@string/search_for_city"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.156"
             app:layout_constraintStart_toStartOf="parent"
@@ -47,89 +48,65 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/searchName"
+                android:textColor="@color/primaryTextColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="128dp"
-                android:text="City name"
                 android:textSize="26sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/weather_now"
+                android:id="@+id/searchIcon"
                 android:layout_width="92dp"
                 android:layout_height="94dp"
-                android:layout_marginTop="56dp"
+                android:layout_marginTop="12dp"
                 android:src="@drawable/weather"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.231"
+                app:layout_constraintHorizontal_bias="0.206"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
+                app:layout_constraintTop_toBottomOf="@+id/searchName" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/searchTemp"
+                android:textColor="@color/primaryTextColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="68dp"
-                android:text="22°C"
-
+                android:layout_marginTop="36dp"
                 android:textSize="52sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.319"
-                app:layout_constraintStart_toEndOf="@+id/weather_now"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-            <TextView
-                android:id="@+id/min_temp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Min.temp:"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.253"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/weather_now" />
-
-            <TextView
-                android:id="@+id/max_temp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:text="Max. temp:"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/min_temp"
-                app:layout_constraintTop_toBottomOf="@+id/min_temp" />
+                app:layout_constraintHorizontal_bias="0.312"
+                app:layout_constraintStart_toEndOf="@+id/searchIcon"
+                app:layout_constraintTop_toBottomOf="@+id/searchName" />
 
             <LinearLayout
                 android:id="@+id/linear_horizontal"
-                android:layout_width="409dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="48dp"
                 android:orientation="horizontal"
                 android:weightSum="3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/max_temp">
+
+                app:layout_constraintTop_toBottomOf="@+id/searchDescription">
 
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8sp"
+                    android:layout_marginStart="12sp"
                     android:layout_marginEnd="8sp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="#e9e9e9"
+                    android:background="@drawable/layout_bg"
                     android:gravity="center"
                     android:orientation="vertical"
-
                     android:padding="8dp">
 
                     <ImageView
@@ -140,14 +117,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Visibility"
+                        android:text="@string/visibility"
                         android:textSize="12dp" />
 
                     <TextView
-                        android:id="@+id/pressure"
+                        android:id="@+id/visibilitySearch"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="10 km"
                         android:textSize="14dp" />
                 </LinearLayout>
 
@@ -157,7 +133,7 @@
                     android:layout_marginStart="8sp"
                     android:layout_marginEnd="8sp"
                     android:layout_weight="1"
-                    android:background="#e9e9e9"
+                    android:background="@drawable/layout_bg"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="8dp">
@@ -170,14 +146,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Humidity"
+                        android:text="@string/humidity"
                         android:textSize="12dp" />
 
                     <TextView
-                        android:id="@+id/Humidity"
+                        android:id="@+id/searchHumidity"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="35 %"
                         android:textSize="14dp" />
                 </LinearLayout>
 
@@ -185,9 +160,9 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8sp"
-                    android:layout_marginEnd="8sp"
+                    android:layout_marginEnd="12sp"
                     android:layout_weight="1"
-                    android:background="#e9e9e9"
+                    android:background="@drawable/layout_bg"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="8dp">
@@ -200,19 +175,126 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Wind"
+                        android:text="@string/wind"
                         android:textSize="12dp" />
 
                     <TextView
-                        android:id="@+id/wind"
+                        android:id="@+id/windSearch"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="5.1m/s"
                         android:textSize="14dp" />
                 </LinearLayout>
 
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/linear_horizontal2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                android:weightSum="3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linear_horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12sp"
+                    android:layout_marginEnd="8sp"
+                    android:layout_weight="1"
+                    android:background="@drawable/layout_bg"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/temp_down" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/min_temp"
+                        android:textSize="12sp" />
+                    <TextView
+                        android:id="@+id/searchMin_temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8sp"
+                    android:layout_marginEnd="8sp"
+                    android:layout_weight="1"
+                    android:background="@drawable/layout_bg"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/temp_up" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/max_temp"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/searchMax_temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8sp"
+                    android:layout_marginEnd="12sp"
+                    android:layout_weight="1"
+                    android:background="@drawable/layout_bg"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/pressure" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pressure"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/searchPressure"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/searchDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:textColor="@color/primaryTextColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.243"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/searchIcon" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
