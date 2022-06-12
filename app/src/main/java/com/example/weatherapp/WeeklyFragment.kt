@@ -13,6 +13,8 @@ import com.example.weatherapp.api.DataDailyModel
 import com.example.weatherapp.api.Forecast
 import com.example.weatherapp.api.InterfaceAPI
 import com.example.weatherapp.data.LocationData
+import com.example.weatherapp.databinding.FragmentWeeklyBinding
+import com.example.weatherapp.viewmodels.CurrentViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -21,6 +23,11 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class WeeklyFragment : Fragment() {
+
+    lateinit var viewModel: CurrentViewModel
+    lateinit var binding: FragmentWeeklyBinding
+
+
     val NUM_DAYS = 7
     var description: String? = null
     var minTemp: String? = null ; var maxTemp: String? = null
@@ -33,10 +40,6 @@ class WeeklyFragment : Fragment() {
     private var apiInterface: Call<Forecast>? = null
     private var dailyList = ArrayList<DataDailyModel>()
     lateinit var locData: LocationData
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_weekly, container, false)

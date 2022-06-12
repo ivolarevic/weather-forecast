@@ -1,4 +1,4 @@
-package com.example.weatherapp.api
+package com.example.weatherapp.repository
 
 import com.example.weatherapp.api.Rain
 import com.example.weatherapp.api.Weather

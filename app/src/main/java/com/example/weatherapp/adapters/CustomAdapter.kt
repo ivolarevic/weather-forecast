@@ -1,5 +1,6 @@
 package com.example.weatherapp.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.weatherapp.R
 import com.example.weatherapp.api.DataDailyModel
+import com.example.weatherapp.databinding.FragmentSearchBinding
+import com.example.weatherapp.databinding.FragmentWeeklyBinding
 
 
 class CustomAdapter(private var itemsList: List<DataDailyModel>) : RecyclerView.Adapter<CustomAdapter.MyViewHolder>() {
@@ -25,11 +28,14 @@ class CustomAdapter(private var itemsList: List<DataDailyModel>) : RecyclerView.
         var pressureView: TextView = view.findViewById(R.id.pressureDaily)
     }
 
+    private lateinit var binding: FragmentWeeklyBinding
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView = LayoutInflater.from(parent.context)
             .inflate(R.layout.daily_layout, parent, false)
         return MyViewHolder(itemView)
     }
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val item = itemsList[position]
 
