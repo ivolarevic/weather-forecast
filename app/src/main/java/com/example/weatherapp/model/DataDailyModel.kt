@@ -1,4 +1,4 @@
-package com.example.weatherapp.api
+package com.example.weatherapp.model
 
 data class DataDailyModel (
     val description: String,

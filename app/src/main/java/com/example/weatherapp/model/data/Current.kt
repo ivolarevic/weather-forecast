@@ -1,7 +1,5 @@
-package com.example.weatherapp.api
+package com.example.weatherapp.model.data
 
-import com.example.weatherapp.api.Rain
-import com.example.weatherapp.api.Weather
 import com.google.gson.annotations.SerializedName
 
 data class Current(
@@ -19,5 +17,5 @@ data class Current(
     @SerializedName("wind_speed") val wind_speed:Float,
     @SerializedName("wind_deg") val wind_deg:Float,
     @SerializedName("weather") val weather:List<Weather>,
-    @SerializedName("rain") val rain: Rain,
+    //@SerializedName("rain") val rain: Rain, ??
 )

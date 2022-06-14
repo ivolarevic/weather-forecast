@@ -8,7 +8,7 @@ import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
-import com.example.weatherapp.data.LocationData
+import com.example.weatherapp.utlis.LocationData
 import com.example.weatherapp.databinding.FragmentSearchBinding
 import com.example.weatherapp.viewmodels.SearchViewModel
 
@@ -38,10 +38,10 @@ class SearchFragment : Fragment() {
             spinner.adapter = adapter
         }
 
-        fetchSpinnerData(spinner)
+        //fetchSpinnerData(spinner)
     }
 
-    private fun fetchSpinnerData(spinner:Spinner){
+    /*private fun fetchSpinnerData(spinner:Spinner){
         val cities = resources.getStringArray(R.array.cities_array)
         spinner.onItemSelectedListener = object :
             AdapterView.OnItemSelectedListener {
@@ -53,7 +53,7 @@ class SearchFragment : Fragment() {
             }
         }
         updateUI()
-    }
+    }*/
 
      private fun updateUI(){
         binding.searchHumidity.text = viewModel.humidity

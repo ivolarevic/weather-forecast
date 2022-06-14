@@ -10,9 +10,8 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.weatherapp.R
-import com.example.weatherapp.api.DataDailyModel
-import com.example.weatherapp.databinding.FragmentSearchBinding
 import com.example.weatherapp.databinding.FragmentWeeklyBinding
+import com.example.weatherapp.model.DataDailyModel
 
 
 class CustomAdapter(private var itemsList: List<DataDailyModel>) : RecyclerView.Adapter<CustomAdapter.MyViewHolder>() {

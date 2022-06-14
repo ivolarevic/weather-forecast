@@ -2,7 +2,6 @@ package com.example.weatherapp
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,11 +12,10 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weatherapp.adapters.CustomHourlyAdapter
-import com.example.weatherapp.api.*
-import com.example.weatherapp.data.LocationData
+import com.example.weatherapp.model.DataHourlyModel
+import com.example.weatherapp.model.data.Forecast
+import com.example.weatherapp.utlis.LocationData
 import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import java.sql.Timestamp
 import java.text.SimpleDateFormat
 import java.util.ArrayList
@@ -55,10 +53,10 @@ class HourlyFragment : Fragment() {
         hConst = view.findViewById(R.id.hConst)
 
         locData = LocationData()
-        fetchCurrentLocationWeather(progressBar!!)
+        //fetchCurrentLocationWeather(progressBar!!)
     }
 
-    private fun fetchCurrentLocationWeather(progressBar: ProgressBar) {
+    /*private fun fetchCurrentLocationWeather(progressBar: ProgressBar) {
         apiInterface = InterfaceAPI.create().getCurrentWeatherData(locData.setDefaultLatitude(),locData.setDefaultLongitude(),locData.apiKey())
         apiInterface!!.enqueue(object: Callback<Forecast> {
             override fun onResponse(call: Call<Forecast>, response: Response<Forecast>) {
@@ -73,7 +71,7 @@ class HourlyFragment : Fragment() {
             override fun onFailure(call: Call<Forecast>, t: Throwable) {
             }
         })
-    }
+    }*/
 
     @SuppressLint("SimpleDateFormat")
     private fun fetchHourlyWeather(body: Forecast, i: Int) {

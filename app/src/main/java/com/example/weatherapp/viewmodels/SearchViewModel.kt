@@ -2,9 +2,9 @@ package com.example.weatherapp.viewmodels
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
-import com.example.weatherapp.api.Forecast
-import com.example.weatherapp.api.InterfaceAPI
-import com.example.weatherapp.data.LocationData
+import com.example.weatherapp.model.data.Forecast
+
+import com.example.weatherapp.utlis.LocationData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -26,7 +26,7 @@ class SearchViewModel : ViewModel() {
     var visibility: String = ""
     var id: Int = 0
 
-     fun fetchData(city : String){
+     /*fun fetchData(city : String){
         cityName = city
         locData.getCityCoordinates(city)
 
@@ -41,7 +41,7 @@ class SearchViewModel : ViewModel() {
                 Log.d("error_retrofit: ", t.toString())
             }
         })
-    }
+    }*/
 
     fun cityData(body: Forecast){
         id = body.current.weather[0].id

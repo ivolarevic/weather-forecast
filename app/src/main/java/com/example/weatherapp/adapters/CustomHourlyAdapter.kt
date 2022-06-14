@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.weatherapp.R
-import com.example.weatherapp.api.DataHourlyModel
+import com.example.weatherapp.model.DataHourlyModel
 
 class CustomHourlyAdapter(private var itemsList: List<DataHourlyModel>) : RecyclerView.Adapter<CustomHourlyAdapter.MyViewHolder>() {
     inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {

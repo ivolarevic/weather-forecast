@@ -9,15 +9,12 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weatherapp.adapters.CustomAdapter
-import com.example.weatherapp.api.DataDailyModel
-import com.example.weatherapp.api.Forecast
-import com.example.weatherapp.api.InterfaceAPI
-import com.example.weatherapp.data.LocationData
+import com.example.weatherapp.utlis.LocationData
 import com.example.weatherapp.databinding.FragmentWeeklyBinding
+import com.example.weatherapp.model.DataDailyModel
+import com.example.weatherapp.model.data.Forecast
 import com.example.weatherapp.viewmodels.CurrentViewModel
 import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import java.sql.Timestamp
 import java.text.SimpleDateFormat
 import java.util.*
@@ -26,7 +23,6 @@ class WeeklyFragment : Fragment() {
 
     lateinit var viewModel: CurrentViewModel
     lateinit var binding: FragmentWeeklyBinding
-
 
     val NUM_DAYS = 7
     var description: String? = null
@@ -55,10 +51,10 @@ class WeeklyFragment : Fragment() {
         progressBar = view.findViewById(R.id.progressBar2)
 
         locData = LocationData()
-        getWeeklyData()
+        //getWeeklyData()
     }
 
-    private fun getWeeklyData() {
+    /*private fun getWeeklyData() {
         apiInterface = InterfaceAPI.create().getCurrentWeatherData(locData.setDefaultLatitude(), locData.setDefaultLongitude(), locData.apiKey())
         apiInterface!!.enqueue(object : Callback<Forecast> {
             override fun onResponse(call: Call<Forecast>, response: Response<Forecast>) {
@@ -72,7 +68,7 @@ class WeeklyFragment : Fragment() {
             override fun onFailure(call: Call<Forecast>, t: Throwable) {
             }
         })
-    }
+    }*/
 
     private fun fetchDailyWeather(body: Forecast?, i: Int) {
         val sdf = SimpleDateFormat("EEEE")
