@@ -1,6 +1,7 @@
 package com.example.weatherapp.network
 
 import android.content.Context
+import android.util.Log
 import com.example.weatherapp.model.data.Forecast
 import retrofit2.Call
 import retrofit2.Callback
@@ -17,6 +18,7 @@ class ForecastApiCall(private val context: Context): ForecastModel {
                 if (response.isSuccessful) {
                     callback.onRequestSuccess(response.body()!!)
                 }else{
+                    Log.d("failed", response.message().toString())
                     callback.onRequestFailed(response.message())
                 }
             }

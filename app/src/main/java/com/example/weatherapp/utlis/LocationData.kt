@@ -7,7 +7,7 @@ import java.math.RoundingMode
 
 open class LocationData() {
 
-    val API_KEY = "d32c530968b46cca52ed08edcf0d6a93"
+    val API_KEY = "b57f02b119fe88ea62242ec5fa20cac2"
     var idHourlyIcon: Int = 0
     var idCurrentBack: Int = 0
     // Zagreb

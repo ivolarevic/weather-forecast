@@ -35,7 +35,6 @@ class MainActivity : AppCompatActivity() {
 
         loadFragment(CurrentFragment())
 
-
         bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
         bottomNav.setOnNavigationItemSelectedListener  {
             when(it.itemId){
@@ -44,12 +43,10 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.weeklyFragment -> {
-                    // Respond to navigation item 2 click
                     loadFragment(WeeklyFragment())
                     true
                 }
                 R.id.hourlyFragment -> {
-                    // Respond to navigation item 2 click
                     loadFragment(HourlyFragment())
                     true
                 }

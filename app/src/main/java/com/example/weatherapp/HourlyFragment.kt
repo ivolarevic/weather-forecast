@@ -18,6 +18,7 @@ import com.example.weatherapp.model.data.Forecast
 import com.example.weatherapp.network.ForecastApiCall
 import com.example.weatherapp.utlis.LocationData
 import com.example.weatherapp.viewmodels.HourlyViewModel
+import com.example.weatherapp.viewmodels.WeeklyViewModel
 import java.sql.Timestamp
 import java.text.SimpleDateFormat
 
@@ -28,7 +29,7 @@ class HourlyFragment : Fragment() {
     private var hourlyList = ArrayList<Forecast>()
     private lateinit var model: ForecastApiCall
 
-    private lateinit var viewModel: HourlyViewModel
+    private lateinit var viewModel: WeeklyViewModel
     private lateinit var binding: FragmentHourlyBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -44,7 +45,7 @@ class HourlyFragment : Fragment() {
         recyclerView?.adapter = customAdapter
 
         model = ForecastApiCall(requireContext())
-        viewModel = ViewModelProvider(this)[HourlyViewModel::class.java]
+        viewModel = ViewModelProvider(this)[WeeklyViewModel::class.java]
         setLiveDataListeners()
         viewModel.getWeatherInfo(model)
     }

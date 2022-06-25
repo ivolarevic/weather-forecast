@@ -9,7 +9,7 @@ import retrofit2.http.Query
 
 interface InterfaceAPI {
 
-    @GET("/data/2.5/onecall")
+    @GET("data/2.5/onecall")
     fun getCurrentWeatherData(
         @Query("lat")  latitude:Float,
         @Query("lon")  longitude:Float,
