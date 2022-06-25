@@ -100,6 +100,21 @@ open class LocationData() {
         return idCurrentBack
     }
 
+    fun fetchNightIcon(id: Int) : Int{
+        if(id == 800){
+            idHourlyIcon = R.drawable.moon_clear
+        }
+        else{
+            idHourlyIcon = R.drawable.moon_transaprent
+        }
+        return idHourlyIcon
+    }
+
+    fun fetchNightBackground() : Int{
+        idCurrentBack = R.drawable.snow_background
+        return idCurrentBack
+    }
+
 
     fun animateImage(image: ImageView?){
         image!!.animate().apply {

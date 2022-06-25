@@ -25,4 +25,6 @@ class ForecastApiCall(private val context: Context): ForecastModel {
             }
         })
     }
+
 }
+

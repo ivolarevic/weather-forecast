@@ -1,14 +1,11 @@
 package com.example.weatherapp.model
 
-data class DataDailyModel (
+data class DataDailyModel(
     val description: String,
-    val day: String,
-    val icon: Int,
-    val minTemp: String,
-    val maxTemp: String,
-    val rain: Float,
-    val humidity: Int,
+    val temp: Float,
+    val humidity: Float,
     val wind: Float,
     val pressure: Float,
-    val background: Int,
-    )
+    val id: Int,
+    val dt: Long,
+)
