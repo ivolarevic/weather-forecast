@@ -16,7 +16,9 @@ import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.weatherapp.model.DataWeeklyModel
 import com.example.weatherapp.model.WeeklyListModel
+import com.example.weatherapp.model.data.Daily
 import com.example.weatherapp.model.data.Forecast
+import com.example.weatherapp.model.data.Hourly
 import com.example.weatherapp.network.ForecastApiCall
 import com.example.weatherapp.viewmodels.WeeklyViewModel
 import java.sql.Timestamp
@@ -30,8 +32,7 @@ class WeeklyFragment : Fragment() {
     private var progressBar:ProgressBar ?= null
     private lateinit var customAdapter: WeeklyAdapter
     private var recyclerView: RecyclerView? = null
-    private var weeklyList = ArrayList<Forecast>()
-
+    private var weeklyList : MutableList<Daily> = mutableListOf()
     private lateinit var model: ForecastApiCall
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -41,7 +42,6 @@ class WeeklyFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         viewModel = ViewModelProvider(this)[WeeklyViewModel::class.java]
         recyclerView = view.findViewById(R.id.recyclerView)
         customAdapter = WeeklyAdapter(weeklyList)
@@ -49,7 +49,6 @@ class WeeklyFragment : Fragment() {
         recyclerView?.layoutManager = layoutManager
         recyclerView?.adapter = customAdapter
         progressBar = view.findViewById(R.id.progressBar2)
-
         model = ForecastApiCall(requireContext())
         setLiveDataListeners()
         viewModel.getWeatherInfo(model)
@@ -61,8 +60,8 @@ class WeeklyFragment : Fragment() {
         })
     }
 
-    private fun setAdapterData(data: Forecast){
-        weeklyList.add(data)
+    private fun setAdapterData(data: List<Daily>){
+        weeklyList.addAll(data)
         customAdapter.notifyDataSetChanged()
     }
 }

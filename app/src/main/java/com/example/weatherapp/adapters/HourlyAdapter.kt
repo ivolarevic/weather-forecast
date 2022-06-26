@@ -13,11 +13,12 @@ import com.bumptech.glide.Glide
 import com.example.weatherapp.R
 import com.example.weatherapp.model.DataHourlyModel
 import com.example.weatherapp.model.data.Forecast
+import com.example.weatherapp.model.data.Hourly
 import com.example.weatherapp.utlis.LocationData
 import java.sql.Timestamp
 import java.text.SimpleDateFormat
 
-class HourlyAdapter(private var itemsList: List<Forecast>) : RecyclerView.Adapter<HourlyAdapter.MyViewHolder>() {
+class HourlyAdapter(private var itemsList: MutableList<Hourly>) : RecyclerView.Adapter<HourlyAdapter.MyViewHolder>() {
     private val locData = LocationData()
     private val sdf = SimpleDateFormat("HH")
 
@@ -38,10 +39,10 @@ class HourlyAdapter(private var itemsList: List<Forecast>) : RecyclerView.Adapte
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val item = itemsList[position]
-        val id = item.hourly[position].weather[0].id
-        holder.hour.text = sdf.format(Timestamp(item.hourly[position].dt*1000)) + ":00h"
-        holder.hourlyDescription.text = item.hourly[position].weather[0].description
-        holder.tempHourly.text = locData.kelvinToCelsius(item.hourly[position].temp).toString() + "°C"
+        val id = item.weather[0].id
+        holder.hour.text = sdf.format(Timestamp(item.dt*1000)) + ":00h"
+        holder.hourlyDescription.text = item.weather[0].description
+        holder.tempHourly.text = locData.kelvinToCelsius(item.temp).toString() + "°C"
         Glide.with(holder.iconHourly.context).load(locData.fetchIcon(id)).into(holder.iconHourly);
         locData.animateImage(holder.iconHourly)
         holder.constraint.setBackgroundResource(locData.fetchBackground(id))

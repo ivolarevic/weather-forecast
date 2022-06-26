@@ -1,6 +1,7 @@
 package com.example.weatherapp
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +16,7 @@ import com.example.weatherapp.databinding.FragmentHourlyBinding
 import com.example.weatherapp.model.DataDailyModel
 import com.example.weatherapp.model.DataHourlyModel
 import com.example.weatherapp.model.data.Forecast
+import com.example.weatherapp.model.data.Hourly
 import com.example.weatherapp.network.ForecastApiCall
 import com.example.weatherapp.utlis.LocationData
 import com.example.weatherapp.viewmodels.HourlyViewModel
@@ -26,10 +28,10 @@ class HourlyFragment : Fragment() {
 
     private lateinit var customAdapter: HourlyAdapter
     private var recyclerView: RecyclerView? = null
-    private var hourlyList = ArrayList<Forecast>()
+    private var hourlyList : MutableList<Hourly> = mutableListOf()
     private lateinit var model: ForecastApiCall
 
-    private lateinit var viewModel: WeeklyViewModel
+    private lateinit var viewModel: HourlyViewModel
     private lateinit var binding: FragmentHourlyBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -43,9 +45,8 @@ class HourlyFragment : Fragment() {
         customAdapter = HourlyAdapter(hourlyList)
         recyclerView?.layoutManager = GridLayoutManager(context, 2)
         recyclerView?.adapter = customAdapter
-
         model = ForecastApiCall(requireContext())
-        viewModel = ViewModelProvider(this)[WeeklyViewModel::class.java]
+        viewModel = ViewModelProvider(this)[HourlyViewModel::class.java]
         setLiveDataListeners()
         viewModel.getWeatherInfo(model)
     }
@@ -56,8 +57,8 @@ class HourlyFragment : Fragment() {
         })
     }
 
-    private fun setAdapterInfo(data: Forecast){
-        hourlyList.add(data)
+    private fun setAdapterInfo(data: List<Hourly>){
+        hourlyList.addAll(data)
         customAdapter.notifyDataSetChanged()
     }
 }

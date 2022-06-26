@@ -13,8 +13,10 @@ import com.example.weatherapp.utlis.LocationData
 class SearchViewModel : ViewModel() {
     private var api : String = LocationData().API_KEY
     private var locData = LocationData()
-    var weatherLiveData = MutableLiveData<Forecast>()
     var cityName = MutableLiveData<String>()
+
+    var weatherLiveData = MutableLiveData<Forecast>()
+    val weatherFailureLiveData = MutableLiveData<String>()
 
     fun getWeatherInfo(model: ForecastModel, name : String) {
         locData.getCityCoordinates(name)
@@ -23,9 +25,8 @@ class SearchViewModel : ViewModel() {
             override fun onRequestSuccess(data: Forecast) {
                  weatherLiveData.postValue(data)
             }
-
              override fun onRequestFailed(errorMessage: String) {
-                 //weatherFailureLiveData.postValue(errorMessage)
+                 weatherFailureLiveData.postValue(errorMessage)
              }
         })
     }
