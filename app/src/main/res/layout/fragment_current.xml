@@ -6,25 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".CurrentFragment">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/currentConstraint"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
-        >
-
-        <com.github.matteobattilana.weather.WeatherView
-            android:id="@+id/weather_view"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" >
-
-        </com.github.matteobattilana.weather.WeatherView>
-
+        android:visibility="visible">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
@@ -34,18 +38,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <ProgressBar
-                android:id="@+id/progressBar"
-                style="?android:attr/progressBarStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <TextView
                 android:id="@+id/time"
+                android:textColor="@color/primaryTextColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="64dp"
@@ -57,6 +52,7 @@
 
             <TextView
                 android:id="@+id/cityName"
+                android:textColor="@color/primaryTextColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"
@@ -82,15 +78,16 @@
                 android:id="@+id/temp"
                 android:layout_width="129dp"
                 android:layout_height="89dp"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="72dp"
-                android:textSize="64sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.179"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="52sp"
                 app:layout_constraintStart_toEndOf="@+id/weather_now"
                 app:layout_constraintTop_toBottomOf="@+id/cityName" />
 
             <TextView
                 android:id="@+id/feels_like"
+                android:textColor="@color/primaryTextColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -102,12 +99,14 @@
 
             <TextView
                 android:id="@+id/weater_type"
+                android:textColor="@color/primaryTextColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cityName" />
+
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -119,7 +118,6 @@
             android:layout_marginTop="32dp"
             android:orientation="horizontal"
             android:weightSum="3"
-            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
@@ -143,14 +141,15 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Visibility"
-                    android:textSize="12dp" />
+                    android:text="@string/visibility"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/visibility"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="10 km"
+                    android:textColor="@color/primaryTextColor"
                     android:textSize="14dp" />
             </LinearLayout>
 
@@ -173,15 +172,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Humidity"
-                    android:textSize="12dp" />
+                    android:text="@string/humidity"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/humidity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="35 %"
-                    android:textSize="14dp" />
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="12sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -203,15 +203,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Wind"
-                    android:textSize="12dp" />
+                    android:textColor="@color/primaryTextColor"
+                    android:text="@string/wind"
+                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/wind"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="5.1m/s"
-                    android:textSize="14dp" />
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="14sp" />
             </LinearLayout>
 
         </LinearLayout>
@@ -223,7 +224,6 @@
             android:layout_marginTop="8dp"
             android:orientation="horizontal"
             android:weightSum="3"
-            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linear_horizontal">
@@ -248,15 +248,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Min.temp"
-                    android:textSize="12dp" />
+                    android:text="@string/min_temp"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/min_temp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="15°C"
-                    android:textSize="14dp" />
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -278,15 +279,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Max. temp"
-                    android:textSize="12dp" />
+                    android:text="@string/max_temp"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/max_temp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="28°C "
-                    android:textSize="14dp" />
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -308,15 +310,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Pressure"
-                    android:textSize="12dp" />
+                    android:text="@string/pressure"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/pressure"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1016hPa"
-                    android:textSize="14dp" />
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="14sp" />
             </LinearLayout>
 
         </LinearLayout>

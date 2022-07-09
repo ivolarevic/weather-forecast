@@ -1,4 +1,4 @@
-package com.example.weatherapp.data
+package com.example.weatherapp.utlis
 
 import android.util.Pair
 import android.widget.ImageView
@@ -7,11 +7,17 @@ import java.math.RoundingMode
 
 open class LocationData() {
 
-    val API_KEY = "d32c530968b46cca52ed08edcf0d6a93"
+    val API_KEY = "b57f02b119fe88ea62242ec5fa20cac2"
     var idHourlyIcon: Int = 0
     var idCurrentBack: Int = 0
+    // Zagreb
+    var defaultCityName = "Zagreb"
     var defaultLatitude:Float = 45.815399f
     var defaultLongitude:Float = 15.966568f
+
+    var selectedCityLatitude:Float = 0.0f
+    var selectedCityLongitude:Float = 0.0f
+
 
     fun setDefaultLatitude() : Float {
         return defaultLatitude
@@ -47,15 +53,13 @@ open class LocationData() {
     fun getCityCoordinates(cityName:String){
         var tmp: Pair<Float, Float>? = cityCoordinates[cityName]
         if (tmp != null) {
-            defaultLatitude = tmp.first
-            defaultLongitude = tmp.second
+            selectedCityLatitude = tmp.first
+            selectedCityLongitude = tmp.second
         }
     }
 
     fun kelvinToCelsius(temp: Float): Any? {
-        var intTemp = temp
-        intTemp = intTemp.minus(273)
-        return intTemp.toBigDecimal().setScale(1, RoundingMode.UP)
+        return (temp - 273.15).toInt()
     }
 
     fun fetchIcon(id: Int) : Int {
@@ -93,6 +97,21 @@ open class LocationData() {
         else if(id in 801..804){
             idCurrentBack = R.drawable.snow_background
         }
+        return idCurrentBack
+    }
+
+    fun fetchNightIcon(id: Int) : Int{
+        if(id == 800){
+            idHourlyIcon = R.drawable.moon_clear
+        }
+        else{
+            idHourlyIcon = R.drawable.moon_transaprent
+        }
+        return idHourlyIcon
+    }
+
+    fun fetchNightBackground() : Int{
+        idCurrentBack = R.drawable.snow_background
         return idCurrentBack
     }
 

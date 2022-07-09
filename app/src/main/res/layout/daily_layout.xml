@@ -5,23 +5,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/round_layout"
-    android:layout_marginTop="24dp"
-    >
+    android:layout_marginTop="10dp"
+    android:background="@drawable/round_layout">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/card_view"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="2dp"
         android:clickable="true"
-        app:cardPreventCornerOverlap="false"
         android:focusable="true"
         android:foreground="?selectableItemBackground"
         app:cardCornerRadius="12dp"
         app:cardElevation="7dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="2dp"
+        app:cardPreventCornerOverlap="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,7 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"
-                android:text="Day of the week"
+                android:textColor="@color/primaryTextColor"
                 android:textSize="26sp"
                 app:layout_constraintBottom_toTopOf="@+id/linear_horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -55,7 +55,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="18 / 11 °C"
+                android:textColor="@color/primaryTextColor"
                 app:layout_constraintBottom_toTopOf="@+id/linear_horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.399"
@@ -68,7 +68,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Weather"
+                android:textColor="@color/primaryTextColor"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.884"
                 app:layout_constraintStart_toStartOf="parent"
@@ -78,7 +78,7 @@
                 android:id="@+id/weatherIconHourly"
                 android:layout_width="62dp"
                 android:layout_height="49dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="24dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.909"
                 app:layout_constraintStart_toStartOf="parent"
@@ -90,7 +90,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="24dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginBottom="12dp"
                 android:background="@drawable/layout_bg"
@@ -121,7 +121,7 @@
                         android:id="@+id/rainDaily"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="1.0mm"
+                        android:textColor="@color/primaryTextColor"
                         android:textSize="14dp" />
                 </LinearLayout>
 
@@ -145,8 +145,8 @@
                         android:id="@+id/humidityDaily"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="35 %"
-                        android:textSize="14dp" />
+                        android:textColor="@color/primaryTextColor"
+                        android:textSize="14sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -168,8 +168,8 @@
                         android:id="@+id/windDaily"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="5.1m/s"
-                        android:textSize="14dp" />
+                        android:textColor="@color/primaryTextColor"
+                        android:textSize="14sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -192,8 +192,8 @@
                         android:id="@+id/pressureDaily"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="1016hPa"
-                        android:textSize="14dp" />
+                        android:textColor="@color/primaryTextColor"
+                        android:textSize="14sp" />
                 </LinearLayout>
 
             </LinearLayout>

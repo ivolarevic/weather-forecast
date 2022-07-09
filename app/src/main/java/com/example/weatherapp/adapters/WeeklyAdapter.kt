@@ -1,5 +1,6 @@
 package com.example.weatherapp.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,10 +10,15 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.weatherapp.R
-import com.example.weatherapp.api.DataDailyModel
+import com.example.weatherapp.model.data.Daily
+import com.example.weatherapp.utlis.LocationData
+import java.sql.Timestamp
+import java.text.SimpleDateFormat
 
+class WeeklyAdapter(private var itemsList: MutableList<Daily>) : RecyclerView.Adapter<WeeklyAdapter.MyViewHolder>() {
+    private val locData = LocationData()
+    private val sdf = SimpleDateFormat("EEEE")
 
-class CustomAdapter(private var itemsList: List<DataDailyModel>) : RecyclerView.Adapter<CustomAdapter.MyViewHolder>() {
     inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var dailyConstraint: ConstraintLayout = view.findViewById(R.id.dailyConstraint)
         var description: TextView = view.findViewById(R.id.weatherDaily)
@@ -30,27 +36,24 @@ class CustomAdapter(private var itemsList: List<DataDailyModel>) : RecyclerView.
             .inflate(R.layout.daily_layout, parent, false)
         return MyViewHolder(itemView)
     }
+
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val item = itemsList[position]
+        val id = item.weather[0].id
 
-        holder.description.text = item.description.toString()
-        holder.day.text = item.day.toString()
-        holder.minMaxTempView.text = item.minTemp + "/" + item.maxTemp
+        holder.description.text = item.weather[0].description
+        holder.day.text = sdf.format(Timestamp(item.dt*1000))
+        holder.minMaxTempView.text = locData.kelvinToCelsius(item.temp.min).toString() + "°C /" + locData.kelvinToCelsius(item.temp.max).toString() + "°C"
         holder.rainView.text = item.rain.toString() + "mm"
         holder.humidityView.text = item.humidity.toString() + "%"
-        holder.windView.text = item.wind.toString() + "m/s"
+        holder.windView.text = item.wind_speed.toString() + "m/s"
         holder.pressureView.text = item.pressure.toString() + "hPa"
-
-        Glide.with(holder.iconView.context).load(item.icon).into(holder.iconView!!);
-
-        holder.iconView!!.animate().apply{
-            duration = 1000
-            rotationYBy(360f)
-        }.start()
-
-        holder.dailyConstraint.setBackgroundResource(item.background)
-
+        Glide.with(holder.iconView.context).load(locData.fetchIcon(id)).into(holder.iconView);
+        locData.animateImage(holder.iconView)
+        holder.dailyConstraint.setBackgroundResource(locData.fetchBackground(id))
     }
+
     override fun getItemCount(): Int {
         return itemsList.size
     }
