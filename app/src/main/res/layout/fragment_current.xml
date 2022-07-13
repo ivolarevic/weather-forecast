@@ -11,11 +11,11 @@
         android:layout_height="match_parent">
 
         <ProgressBar
-            android:id="@+id/progressBar"
+            android:id="@+id/progressBarCurrent"
             style="?android:attr/progressBarStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
@@ -47,11 +47,13 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+            />
 
 
             <TextView
                 android:id="@+id/cityName"
+                android:text="@string/default_city_name"
                 android:textColor="@color/primaryTextColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -76,6 +78,7 @@
 
             <TextView
                 android:id="@+id/temp"
+                android:text="@string/temp"
                 android:layout_width="129dp"
                 android:layout_height="89dp"
                 android:layout_marginStart="24dp"
@@ -87,6 +90,7 @@
 
             <TextView
                 android:id="@+id/feels_like"
+                android:text="@string/feels_like"
                 android:textColor="@color/primaryTextColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -147,6 +151,7 @@
 
                 <TextView
                     android:id="@+id/visibility"
+                    android:text="@string/visibility_placeholder"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/primaryTextColor"
@@ -181,6 +186,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/primaryTextColor"
+                    android:text="@string/humidity_placeholder"
                     android:textSize="12sp" />
             </LinearLayout>
 
@@ -212,6 +218,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/primaryTextColor"
+                    android:text="@string/wind_placeholder"
                     android:textSize="14sp" />
             </LinearLayout>
 
@@ -257,6 +264,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/primaryTextColor"
+                    android:text="@string/min_placeholder"
                     android:textSize="14sp" />
             </LinearLayout>
 
@@ -288,6 +296,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/primaryTextColor"
+                    android:text="@string/max_placeholder"
                     android:textSize="14sp" />
             </LinearLayout>
 
@@ -319,6 +328,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/primaryTextColor"
+                    android:text="@string/pressure_placeholder"
                     android:textSize="14sp" />
             </LinearLayout>
 

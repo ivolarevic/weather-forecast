@@ -5,37 +5,29 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weatherapp.adapters.WeeklyAdapter
-import com.example.weatherapp.utlis.LocationData
 import com.example.weatherapp.databinding.FragmentWeeklyBinding
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import com.bumptech.glide.Glide
-import com.example.weatherapp.model.DataWeeklyModel
-import com.example.weatherapp.model.WeeklyListModel
 import com.example.weatherapp.model.data.Daily
-import com.example.weatherapp.model.data.Forecast
-import com.example.weatherapp.model.data.Hourly
 import com.example.weatherapp.network.ForecastApiCall
 import com.example.weatherapp.viewmodels.WeeklyViewModel
-import java.sql.Timestamp
-import java.text.SimpleDateFormat
-import java.util.*
 
 class WeeklyFragment : Fragment() {
 
     private lateinit var viewModel: WeeklyViewModel
-    lateinit var binding: FragmentWeeklyBinding
-    private var progressBar:ProgressBar ?= null
+    private lateinit var binding: FragmentWeeklyBinding
+    private lateinit var progressBar:ProgressBar
+    private lateinit var constraintLayout: ConstraintLayout
     private lateinit var customAdapter: WeeklyAdapter
     private var recyclerView: RecyclerView? = null
     private var weeklyList : MutableList<Daily> = mutableListOf()
     private lateinit var model: ForecastApiCall
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentWeeklyBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -48,20 +40,27 @@ class WeeklyFragment : Fragment() {
         val layoutManager = LinearLayoutManager(context)
         recyclerView?.layoutManager = layoutManager
         recyclerView?.adapter = customAdapter
-        progressBar = view.findViewById(R.id.progressBar2)
-        model = ForecastApiCall(requireContext())
+        progressBar = binding.progressBarWeekly
+        constraintLayout = binding.weeklyConstraint
+        model = ForecastApiCall()
         setLiveDataListeners()
         viewModel.getWeatherInfo(model)
     }
 
     private fun setLiveDataListeners(){
-        viewModel.weatherLiveData.observe(viewLifecycleOwner, Observer { forecastData ->
+        viewModel.weatherLiveData.observe(viewLifecycleOwner) { forecastData ->
             setAdapterData(forecastData)
-        })
+        }
     }
 
     private fun setAdapterData(data: List<Daily>){
+        updateProgressBar()
         weeklyList.addAll(data)
         customAdapter.notifyDataSetChanged()
+    }
+
+    private fun updateProgressBar(){
+        progressBar.visibility = View.GONE
+        constraintLayout.visibility = View.VISIBLE
     }
 }
