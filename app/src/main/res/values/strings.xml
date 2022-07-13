@@ -7,7 +7,6 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="time">Time</string>
     <string name="search_for_city">Search for city:</string>
     <string name="humidity">Humidity</string>
     <string name="visibility">Visibility</string>
@@ -15,6 +14,23 @@
     <string name="pressure">Pressure</string>
     <string name="min_temp">Min.temp</string>
     <string name="max_temp">Max. temp</string>
+    <string name="default_city_name">%s</string>
+    <string name="temp">%s</string>
+    <string name="visibility_placeholder">%s</string>
+    <string name="humidity_placeholder">%s</string>
+    <string name="wind_placeholder">%s</string>
+    <string name="min_placeholder">%s</string>
+    <string name="max_placeholder">%s</string>
+    <string name="pressure_placeholder">%s</string>
+    <string name="feels_like">%s</string>
+    <string name="hour">%s</string>
+    <string name="hourly_placeholder">%s</string>
+    <string name="search_name">%s</string>
+    <string name="search_temp">%s</string>
+    <string name="min_max_placeholder">%s</string>
+    <string name="rain_placeholder">%s</string>
+    <string name="hourly_temp_placeholder">%s</string>
+    <string name="hourly_hour_placeholder">%s</string>
 
     <string-array name="cities_array">
         <item>Amsterdam</item>

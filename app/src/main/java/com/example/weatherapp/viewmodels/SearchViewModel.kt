@@ -1,9 +1,7 @@
 package com.example.weatherapp.viewmodels
 
-import android.widget.Spinner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.weatherapp.model.DataCurrentModel
 import com.example.weatherapp.model.data.Forecast
 import com.example.weatherapp.network.ForecastModel
 import com.example.weatherapp.network.RequestCompleteListener

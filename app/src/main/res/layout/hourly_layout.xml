@@ -34,6 +34,7 @@
 
             <TextView
                 android:id="@+id/hour"
+                android:text="@string/hourly_hour_placeholder"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
@@ -69,6 +70,7 @@
 
             <TextView
                 android:id="@+id/hourlyTemp"
+                android:text="@string/hourly_temp_placeholder"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"

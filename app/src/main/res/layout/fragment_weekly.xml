@@ -6,21 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".WeeklyFragment">
 
+    <ProgressBar
+        android:id="@+id/progressBarWeekly"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/weeklyConstraint"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <ProgressBar
-            android:id="@+id/progressBar2"
-            android:visibility="gone"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -31,5 +33,6 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginBottom="52dp"
         tools:listitem="@layout/daily_layout" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

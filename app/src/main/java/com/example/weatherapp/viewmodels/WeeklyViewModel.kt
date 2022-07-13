@@ -2,7 +2,6 @@ package com.example.weatherapp.viewmodels
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.weatherapp.model.DataWeeklyModel
 import com.example.weatherapp.model.data.Daily
 import com.example.weatherapp.model.data.Forecast
 import com.example.weatherapp.network.ForecastModel

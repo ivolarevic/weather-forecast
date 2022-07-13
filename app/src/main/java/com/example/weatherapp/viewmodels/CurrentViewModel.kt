@@ -13,12 +13,10 @@ class CurrentViewModel  : ViewModel() {
     private var lat:Float = LocationData().defaultLatitude
     private var lon:Float = LocationData().defaultLongitude
     private var api : String = LocationData().API_KEY
-
     val weatherLiveData = MutableLiveData<DataCurrentModel>()
     val weatherFailureLiveData = MutableLiveData<String>()
 
     fun getWeatherInfo(model: ForecastModel) {
-
         model.getWeatherInfo(lat, lon, api, object: RequestCompleteListener<Forecast> {
             override fun onRequestSuccess(data: Forecast) {
                 val weatherData = DataCurrentModel(
@@ -33,7 +31,6 @@ class CurrentViewModel  : ViewModel() {
                     maxTemp = data.daily[0].temp.max,
                     id = data.current.weather[0].id,
                 )
-
                 weatherLiveData.postValue(weatherData)
             }
 
