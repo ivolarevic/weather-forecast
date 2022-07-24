@@ -37,8 +37,8 @@ class HourlyAdapter(private var itemsList: MutableList<Hourly>) : RecyclerView.A
         val item = itemsList[position]
         val id = item.weather[0].id
 
-        holder.hour.text = itemView.context.getString(R.string.hourly_hour_placeholder, "${sdf.format(Timestamp(item.dt*1000))}:00h" )
-        holder.tempHourly.text = itemView.context.getString(R.string.hourly_temp_placeholder, "${locData.kelvinToCelsius(item.temp).toString()}°C")
+        holder.hour.text = "${sdf.format(Timestamp(item.dt*1000))}:00h"
+        holder.tempHourly.text = "${locData.kelvinToCelsius(item.temp).toString()}°C"
         holder.hourlyDescription.text = item.weather[0].description
         Glide.with(holder.iconHourly.context).load(locData.fetchIcon(id)).into(holder.iconHourly)
         locData.animateImage(holder.iconHourly)

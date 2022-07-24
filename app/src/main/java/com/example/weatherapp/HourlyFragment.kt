@@ -1,10 +1,12 @@
 package com.example.weatherapp
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
+import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -14,6 +16,7 @@ import com.example.weatherapp.adapters.HourlyAdapter
 import com.example.weatherapp.databinding.FragmentHourlyBinding
 import com.example.weatherapp.model.data.Hourly
 import com.example.weatherapp.network.ForecastApiCall
+import com.example.weatherapp.network.NetworkResult
 import com.example.weatherapp.viewmodels.HourlyViewModel
 
 class HourlyFragment : Fragment() {
@@ -48,8 +51,22 @@ class HourlyFragment : Fragment() {
     }
 
     private fun setLiveDataListeners(){
-        viewModel.weatherLiveData.observe(viewLifecycleOwner) { forecastData ->
-            setAdapterInfo(forecastData)
+        viewModel.response.observe(viewLifecycleOwner){response ->
+            when (response) {
+                is NetworkResult.Success -> {
+                    Log.d("success", response.data.toString())
+                    viewModel.weatherLiveData.observe(viewLifecycleOwner) { forecastData ->
+                        setAdapterInfo(forecastData)
+                    }
+                }
+                is NetworkResult.Error -> {
+                    Toast.makeText(
+                        requireContext(),
+                        response.message.toString(),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
         }
     }
 
