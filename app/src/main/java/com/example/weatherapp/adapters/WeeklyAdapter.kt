@@ -44,11 +44,11 @@ class WeeklyAdapter(private var itemsList: MutableList<Daily>) : RecyclerView.Ad
 
         holder.description.text = item.weather[0].description
         holder.day.text = sdf.format(Timestamp(item.dt*1000))
-        holder.minMaxTempView.text = itemView.context.getString(R.string.humidity_placeholder, "${locData.kelvinToCelsius(item.temp.min).toString()}°C / ${locData.kelvinToCelsius(item.temp.max).toString()}°C")
-        holder.rainView.text =  itemView.context.getString(R.string.rain_placeholder, "${item.rain} mm")
-        holder.humidityView.text =  itemView.context.getString(R.string.humidity_placeholder, "${item.humidity} %")
-        holder.windView.text = itemView.context.getString(R.string.wind_placeholder, "${item.wind_speed} m/s")
-        holder.pressureView.text = itemView.context.getString(R.string.pressure_placeholder,"${item.pressure} hPa")
+        holder.minMaxTempView.text = "${locData.kelvinToCelsius(item.temp.min).toString()}°C / ${locData.kelvinToCelsius(item.temp.max).toString()}°C"
+        holder.rainView.text = "${item.rain} mm"
+        holder.humidityView.text =  "${item.humidity} %"
+        holder.windView.text = "${item.wind_speed} m/s"
+        holder.pressureView.text = "${item.pressure} hPa"
 
         Glide.with(holder.iconView.context).load(locData.fetchIcon(id)).into(holder.iconView)
         locData.animateImage(holder.iconView)

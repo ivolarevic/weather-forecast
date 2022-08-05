@@ -13,7 +13,7 @@ class ForecastApiCall: ForecastModel {
         call.enqueue(object : Callback<Forecast> {
             override fun onResponse(call: Call<Forecast>, response: Response<Forecast>) {
                 if (response.isSuccessful) {
-                     callback.onRequestSuccess(response.body()!!)
+                     callback.onRequestSuccess(response.body()!!, response.code().toString())
                 }else{
                     callback.onRequestFailed(response.message())
                 }

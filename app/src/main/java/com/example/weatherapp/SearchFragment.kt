@@ -1,6 +1,7 @@
 package com.example.weatherapp
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +14,7 @@ import com.example.weatherapp.utlis.LocationData
 import com.example.weatherapp.databinding.FragmentSearchBinding
 import com.example.weatherapp.model.data.Forecast
 import com.example.weatherapp.network.ForecastApiCall
+import com.example.weatherapp.network.NetworkResult
 import com.example.weatherapp.viewmodels.SearchViewModel
 
 class SearchFragment : Fragment() {
@@ -68,12 +70,25 @@ class SearchFragment : Fragment() {
     }
 
     private fun setLiveDataListeners(){
-        viewModel.cityName.observe(viewLifecycleOwner) {
-            viewModel.cityName.value = cityName
-        }
-
-        viewModel.weatherLiveData.observe(viewLifecycleOwner) { forecastData ->
-            updateUI(forecastData)
+        viewModel.response.observe(viewLifecycleOwner){response ->
+            when (response) {
+                is NetworkResult.Success -> {
+                    Log.d("success", response.data.toString())
+                    viewModel.cityName.observe(viewLifecycleOwner) {
+                        viewModel.cityName.value = cityName
+                    }
+                    viewModel.weatherLiveData.observe(viewLifecycleOwner) { forecastData ->
+                        updateUI(forecastData)
+                    }
+                }
+                is NetworkResult.Error -> {
+                    Toast.makeText(
+                        requireContext(),
+                        response.message.toString(),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
         }
     }
 
@@ -81,13 +96,13 @@ class SearchFragment : Fragment() {
         updateProgressBar()
         binding.searchName.text = cityName
         binding.searchDescription.text = data.current.weather[0].description
-        binding.searchHumidity.text = getString(R.string.humidity_placeholder,"${data.current.humidity} %")
-        binding.searchTemp.text = getString(R.string.search_temp,"${locData.kelvinToCelsius(data.current.temp)}°C")
-        binding.searchMinTemp.text = getString(R.string.min_placeholder,"${locData.kelvinToCelsius(data.daily[0].temp.min)}°C")
-        binding.searchMaxTemp.text = getString(R.string.max_placeholder,"${locData.kelvinToCelsius(data.daily[0].temp.max)}°C")
-        binding.searchPressure.text = getString(R.string.pressure_placeholder,"${data.current.pressure} hPa")
-        binding.windSearch.text = getString(R.string.wind_placeholder,"${data.current.wind_speed}m/s")
-        binding.visibilitySearch.text= getString(R.string.visibility_placeholder,"${data.current.visibility.div(1000)} km")
+        binding.searchHumidity.text = "${data.current.humidity} %"
+        binding.searchTemp.text = "${locData.kelvinToCelsius(data.current.temp)}°C"
+        binding.searchMinTemp.text = "${locData.kelvinToCelsius(data.daily[0].temp.min)}°C"
+        binding.searchMaxTemp.text = "${locData.kelvinToCelsius(data.daily[0].temp.max)}°C"
+        binding.searchPressure.text = "${data.current.pressure} hPa"
+        binding.windSearch.text = "${data.current.wind_speed}m/s"
+        binding.visibilitySearch.text= "${data.current.visibility.div(1000)} km"
 
         val id = data.current.weather[0].id
         binding.searchBackground.setBackgroundResource(locData.fetchBackground(id))
